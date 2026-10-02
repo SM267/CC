@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/shortlinkx?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: shortlink
+    password: shortlink
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: shortlinkx-analytics
+      auto-offset-reset: earliest
+server:
+  port: 8080
+shortlinkx:
+  base-url: http://localhost:8080/
+  analytics-topic: shortlink-clicks
